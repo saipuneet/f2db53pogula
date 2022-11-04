@@ -1,0 +1,12 @@
+extends layout
+block content
+  h1= title
+  - var results = [{"Cap_Name": "Running Cap", "Cap_Company": "Puma", "Shoe_Size": 9.0, "Shoe_Rating": 4.7},{"Cap_Name": "BaseballCap", "Cap_Company": "shein", "Cap_Size": 10.0, "Cap_Rating": 4.2},{"Cap_Name": "oblique", "Cap_Company": "dior", "Cap_Size": 11.0, "Cap_Rating": 4.6}]
+        div.container-fluid 
+            div.row 
+                each item, index in results
+                    div.col-sm-2(onclick=`buy(${index})`) Cap Name: #{item["Cap_Name"]} <br> Cap Company: #{item["Cap_Company"]} <br> Cap Size: #{item["Cap_Size"]} <br> Cap Rating: #{item["Cap_Rating"]}
+            script.
+                function buy(index) {
+                    alert("You purchased item " + index)
+                }
