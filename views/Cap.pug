@@ -1,7 +1,7 @@
 extends layout
 block content
   h1= title
-  - var results = [{"Cap_Name": "Running Cap", "Cap_Company": "Puma", "Cap_Size": 9.0, "Cap_Rating": 4.7},{"Cap_Name": "BaseballCap", "Cap_Company": "shein", "Cap_Size": 10.0, "Cap_Rating": 4.2},{"Cap_Name": "oblique", "Cap_Company": "dior", "Cap_Size": 11.0, "Cap_Rating": 4.6}]
+  - var results = [{Cap_Name:"Running Cap", Cap_Company:'Puma',Cap_Size:9,Cap_Rating:4.7},{Cap_Name:"Baseball Cap", Cap_Company:'Shein',Cap_Size:10.0,Cap_Rating:4.2},Cap_Name:"oblique", {Cap_Company:'dior',Cap_Size:11.0,Cap_Rating:4.6}]
         div.container-fluid 
             div.row 
                 each item, index in results
