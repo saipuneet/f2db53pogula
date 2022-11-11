@@ -18,3 +18,5 @@ router.get('/Cap/:id', Cap_controller.Cap_detail);
 // GET request for list of all Cap items.
 router.get('/Cap', Cap_controller.Cap_list);
 module.exports = router;
+// GET request for one water.
+router.get('/Cap/:id', Cap_controller.Cap_detail);
