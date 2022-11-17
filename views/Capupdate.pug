@@ -1,0 +1,43 @@
+extends layout 
+block content 
+  h1= title 
+  - let Capid = toShow._id 
+  - let Cap_Name = toShow.Cap_Name
+  - let Cap_Company = toShow.Cap_Company
+  - let Cap_Size = toShow.Cap_Size
+  - let Cap_Rating = toShow.Cap_Rating 
+  div.row(class='mb-2') 
+    div.mr-1 ID is 
+    div #{Capid} 
+  - let actionid = "/resource/Cap/" + Capid 
+  form(id='CapForm', action= actionid, method="PUT") 
+    div.form-group 
+        label.CapAttr(for='Cap_Name') Cap Name 
+        input#Cap_Name(type='text', name='Cap_Name', value= Cap_Name ) 
+    div.form-group 
+        label.CapAttr(for='Cap_Company') Cap Company 
+        input#Cap_Company(type='text', name='Cap_Company', value= Cap_Company ) 
+    div.form-group 
+        label.CapAttr(for='Cap_Size') Cap Size 
+        input#Cap_Size(type='number', name='Cap_Size', value= Cap_Size )
+    div.form-group 
+        label.CapAttr(for='Cap_Rating') Cap Rating 
+        input#Cap_Rating(type='number', name='Cap_Rating', value= Cap_Rating)      
+    input(type="submit") 
+  script. 
+    document.forms['CapForm'].addEventListener('submit', (event) => { 
+      event.preventDefault(); 
+      // TODO do something here to show user that form is being submitted 
+      fetch(event.target.action, { 
+        method: 'PUT', 
+        body: new URLSearchParams(new FormData(event.target)) 
+      }).then((resp) => { 
+        return resp.json(); // or resp.text() or whatever the server sends 
+      }).then((body) => { 
+        alert("Update succeded") 
+        // TODO handle body 
+      }).catch((error) => { 
+        // TODO handle error 
+        alert("Update failed " + error ) 
+      }); 
+    });
