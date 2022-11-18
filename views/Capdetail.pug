@@ -1,28 +1,20 @@
 extends layout
 block content
- h1=(class = 'container-fluid' p-5 bg-success text -warning text-center')-title
-
- if(toShow == null)
- h2 NO instance to Detail View 
- else 
+ h1= title
  - let Capid = toShow._id
  - let Cap_Name = toShow.Cap_Name
  - let Cap_Company = toShow.Cap_Company
- - let Cap_Size = toShow.Cap_Size
- - let Cap_Rating = toShow.Cap_Rating
- div(class='justify-content-center p-2 text-center text-dark',style='background-color:#ccffff')
+ - let Caps_Size = toShow.Cap_Size
+ div
  div.row
  div(class='CapAttr mr-3') Cap ID is:
  div #{Capid}
  div.row
- div(class='CapAttr mr-3') Cap Type is:
+ div(class='CapAttr mr-3') Cap Name is:
  div #{Cap_Name}
  div.row
- div(class='CapAttr mr-3') Cap Size is:
+ div(class='CapAttr mr-3') Cap Company is:
  div #{Cap_Company}
  div.row
- div(class='CapAttr mr-3') Cap Cost is:
+ div(class='CapAttr mr-3') Cap Size is:
  div #{Cap_Size}
- div(class='CapAttr mr-3') Cap Rating is: 
- div #{Cap_Rating}
-

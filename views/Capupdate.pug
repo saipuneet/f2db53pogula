@@ -1,19 +1,16 @@
 extends layout 
 block content 
-  h1= (class = 'container-fluid p-5 bg-sucess text-warning text-center')=title 
-  if(toshow == null)
-  h2 NO instance to update view 
-  else 
+  h1= title 
   - let Capid = toShow._id 
   - let Cap_Name = toShow.Cap_Name
   - let Cap_Company = toShow.Cap_Company
   - let Cap_Size = toShow.Cap_Size
   - let Cap_Rating = toShow.Cap_Rating 
-  div.row(class= 'd-flex justify-content-center p-2 bg-light text-center text-danger') 
-    div.mr-1(class = "p-2 flex-fill") ID is 
+  div.row(class='mb-2') 
+    div.mr-1 ID is 
     div #{Capid} 
   - let actionid = "/resource/Cap/" + Capid 
-  form(id='CapForm', class='justify content -center p-2 bg-light text-center text-dark',action= actionid, method="PUT") 
+  form(id='CapForm', action= actionid, method="PUT") 
     div.form-group 
         label.CapAttr(for='Cap_Name') Cap Name 
         input#Cap_Name(type='text', name='Cap_Name', value= Cap_Name ) 
