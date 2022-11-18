@@ -1,12 +1,21 @@
 extends layout
+
 block content
   h1= title
-  - var results = [{Cap_Name:"Running Cap", Cap_Company:'Puma',Cap_Size:9,Cap_Rating:4.7},{Cap_Name:"Baseball Cap", Cap_Company:'Shein',Cap_Size:10.0,Cap_Rating:4.2},Cap_Name:"oblique", {Cap_Company:'dior',Cap_Size:11.0,Cap_Rating:4.6}]
-        div.container-fluid 
-            div.row 
-                each item, index in results
-                    div.col-sm-2(onclick=`buy(${index})`) Cap Name: #{item["Cap_Name"]} <br> Cap Company: #{item["Cap_Company"]} <br> Cap Size: #{item["Cap_Size"]} <br> Cap Rating: #{item["Cap_Rating"]}
-            script.
-                function buy(index) {
-                    alert("You purchased item " + index)
-                }
+  - let result=results
+  div(class="container-fluid")
+     div(class='row m-1')
+        each item,index in result
+            -let destination = `dispatch(\"/Cap/update?id=${item._id}\")`
+            div.col-sm-2(onclick=`buy(${index})`) Cap Name: #{item["Cap_Name"]} <br> Cap Company: #{item["Cap_Company"]} <br> Cap Size: #{item["Cap_Size"]} <br> Cap Rating: #{item["Cap_Rating"]}
+                button.btn(class="btn-primary ml-1", onclick = destination) Update
+
+  script.
+      function buy(index){
+         alert("you purchased item "+(index+1))
+      }
+
+  script.
+      function dispatch(path){
+      window.location.href=path
+      }                
